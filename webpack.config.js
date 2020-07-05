@@ -15,7 +15,6 @@ module.exports = {
 		code: path.resolve(__dirname, 'src/main.tsx')
 	},
 	mode: 'development',
-	target: 'electron-renderer',
 	context: path.resolve(__dirname, ''),
 	optimization: {
 		splitChunks: {
