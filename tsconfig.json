@@ -1,0 +1,27 @@
+{
+	"compilerOptions": {
+		"target": "ES6",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"sourceMap": true,
+		"skipLibCheck": true,
+		"allowSyntheticDefaultImports": true,
+		"jsx": "react",
+		"experimentalDecorators": true,
+		"baseUrl": ".",
+		"paths": {
+			"@/*": [
+				"./src/*"
+			]
+		},
+		"lib": [
+			"esnext",
+			"dom",
+			"dom.iterable",
+			"scripthost"
+		]
+	},
+	"exclude": [
+		"node_modules"
+	]
+}
