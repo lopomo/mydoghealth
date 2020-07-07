@@ -7,7 +7,7 @@ const initState: IState = {
 		id: 'a',
 		name: 'RV'
 	},
-	animal: {
+	animal: [{
 		chip: '1',
 		detail: {
 			name: 'Sisi',
@@ -30,11 +30,16 @@ const initState: IState = {
 		wormed: [
 			{ type: 'tablet', name: 'Galces', iat: new Date('05-04-2020'), exp: new Date('08-04-2020') }
 		]
+	}],
+	runtime: {
+		selectedTab: 'antiparasitics'
 	}
 };
 
 function rootReducer(state = initState, action) {
 	switch (action.type) {
+		case ActionTypes.CHANGE_SELECTED_TAB:
+			state.runtime.selectedTab = action.tab;
 		default:
 			return state;
 	}

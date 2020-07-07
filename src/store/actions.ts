@@ -1,7 +1,7 @@
 import ActionTypes from '@/enums/action_types';
 
-export function setSelectedTab(tab: number) {
-	return { type: 'PICA', payload: tab };
+export function setSelectedTab(tab: string) {
+	return { type: ActionTypes.CHANGE_SELECTED_TAB, tab };
 }
 
 // thunk

@@ -1,9 +1,10 @@
 import { PureComponent } from 'react';
 import React from 'react';
 import { connect } from 'react-redux';
-import Header from '@/components/Header';
-import Content from './Content';
+import Headers from '@/components/Headers';
+import Content from '../Content';
 import Footer from '@/components/Footer';
+import './App.scss';
 
 function mapDispatchToProps(dispatch) {
 	return {
@@ -30,7 +31,7 @@ export default class App extends PureComponent<any, any> {
 	public render() {
 		return (
 			<div>
-				<Header></Header>
+				<Headers></Headers>
 				<Content></Content>
 				<Footer></Footer>
 			</div>
