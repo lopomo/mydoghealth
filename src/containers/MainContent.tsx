@@ -13,24 +13,14 @@ function mapStateToProps(state: IState) {
 export default class MainContent extends React.Component<any, any> {
   constructor(props) {
 	super(props);
-
 	this.state = {
 	}
   }
 
-
   public render() {
 	return (
 	  <div>
-		<TabPanel value={this.props.selectedTab} index="antiparasitics">
-			Item One
-		</TabPanel>
-		<TabPanel value={this.props.selectedTab} index="vaccinations">
-			Item Two
-		</TabPanel>
-		<TabPanel value={this.props.selectedTab}  index="wormed">
-			Item Three
-		</TabPanel>
+		  {this.props.selectedTab}
 	  </div>
 	);
   }

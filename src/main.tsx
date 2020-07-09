@@ -4,13 +4,13 @@ import * as ReactDOM from 'react-dom';
 import store from '@/store/store';
 import { Provider } from 'react-redux';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
+import { blue } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
 	palette: {
-		primary: purple,
-		secondary: purple,
-	}
+		primary: blue,
+		secondary: blue,
+	},
 });
 ReactDOM.render(
 	<Provider store={store}>

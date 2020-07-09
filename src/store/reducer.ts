@@ -39,7 +39,7 @@ const initState: IState = {
 function rootReducer(state = initState, action) {
 	switch (action.type) {
 		case ActionTypes.CHANGE_SELECTED_TAB:
-			state.runtime.selectedTab = action.tab;
+			return Object.assign({}, state, { runtime: { selectedTab: action.tab }});
 		default:
 			return state;
 	}
