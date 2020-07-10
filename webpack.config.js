@@ -50,35 +50,54 @@ module.exports = {
 	},
 	module: {
 		rules: [
-		{
-			test: /\.tsx?$/,
-			exclude: /node_modules/,
-			use: [{
-			loader: 'happypack/loader',
-			options: {
-				transpileOnly: true,
-				appendTsSuffixTo: [/\.vue$/],
-			}
-			}]
-		},
-		{
-			test: /\.s(c|a)ss$/,
-			use: [
-			// Creates `style` nodes from JS strings
-			'style-loader',
-			// Translates CSS into CommonJS
 			{
-				loader: 'css-loader',
+				test: /\.tsx?$/,
+				exclude: /node_modules/,
+				use: [{
+				loader: 'happypack/loader',
 				options: {
-					sourceMap: false,
-					url: false,
-					importLoaders: 2
+					transpileOnly: true,
+					appendTsSuffixTo: [/\.vue$/],
 				}
+				}]
 			},
-			// Compiles Sass to CSS
-			'sass-loader',
-			],
+			{
+				test: /\.module\.s(a|c)ss$/,
+				loader: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+							sourceMap: true 
+						}
+					},
+					{
+						loader: 'sass-loader?indentedSyntax',
+						options: {
+							sourceMap: true
+						}
+					}
+				]
 			},
+			// {
+			// 	test: /\.s(c|a)ss$/,
+			// 	use: [
+			// 		// Creates `style` nodes from JS strings
+			// 		'style-loader',
+			// 		// Translates CSS into CommonJS
+			// 		{
+			// 			loader: 'css-loader',
+			// 			options: {
+			// 				sourceMap: false,
+			// 				url: false,
+			// 				importLoaders: 2
+			// 			}
+			// 		},
+			// 		// Compiles Sass to CSS
+			// 		'sass-loader',
+			// 	],
+			// },
 			{
 				test: /\.(woff|woff2|ttf|svg|eot)$/,
 				use: [
@@ -87,21 +106,21 @@ module.exports = {
 						options: {
 							outputPath: 'fonts',
 							name: '[name].[ext]'
-						}
+							}
 					}
 				]
 			},
-		{
-			test: /\.(svg)(\?.*)?$/,
-			use: [
 			{
-				loader: 'file-loader',
-				options: {
-				name: 'img/[name].[ext]'
-				}
+				test: /\.(svg)(\?.*)?$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+						name: 'img/[name].[ext]'
+						}
+					}
+				]
 			}
-			]
-		}
 		]
 	},
 	resolve: {
@@ -109,7 +128,7 @@ module.exports = {
 		alias: {
 		'react-native': 'react-native-web'
 		},
-		extensions: ['.ts', '.tsx', '.js', '.json'],
+		extensions: ['.ts', '.tsx', '.js', '.json', '.scss'],
 		plugins: [
 		new TsconfigPathsPlugin({
 			configFile: path.resolve(__dirname, 'tsconfig.json')

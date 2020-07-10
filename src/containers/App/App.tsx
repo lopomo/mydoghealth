@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Headers from '@/components/Headers';
 import Content from '../Content';
 import Footer from '@/components/Footer';
-import './App.scss';
+import styles from './App.module.scss';
 
 function mapDispatchToProps(dispatch) {
 	return {
@@ -30,7 +30,7 @@ export default class App extends PureComponent<any, any> {
 
 	public render() {
 		return (
-			<div>
+			<div className={styles.pica}>
 				<Headers></Headers>
 				<Content></Content>
 				<Footer></Footer>
