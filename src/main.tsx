@@ -1,4 +1,4 @@
-import App from '@/containers/App/App';
+import App from '@/components/App/App';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import store from '@/store/store';
@@ -8,8 +8,12 @@ import { blue } from '@material-ui/core/colors';
 
 const theme = createMuiTheme({
 	palette: {
-		primary: blue,
-		secondary: blue,
+		primary: {
+			main: '#006D77'
+		},
+		secondary: {
+			main: '#006D77'
+		},
 	},
 });
 ReactDOM.render(

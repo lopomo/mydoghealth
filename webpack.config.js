@@ -68,36 +68,43 @@ module.exports = {
 					{
 						loader: 'css-loader',
 						options: {
-							modules: true,
+							sourceMap: true,
+							modules: {
+								mode: 'local',
+								exportGlobals: true,
+								localIdentName: '[name]-[local]-[hash:base64:5]'
+							  }
+						}
+					},
+					{
+						loader: 'sass-loader',
+						options: {
+							sourceMap: true,
+						}
+					}
+				],
+				include: /\.module\.s(a|c)ss$/
+			},
+			{
+				test: /\.s(c|a)ss$/,
+				use: [
+					'style-loader',
+					{
+						loader: 'css-loader',
+						options: {
+							modules: false,
 							sourceMap: true 
 						}
 					},
 					{
-						loader: 'sass-loader?indentedSyntax',
+						loader: 'sass-loader',
 						options: {
 							sourceMap: true
 						}
 					}
-				]
+				],
+				exclude: /\.module\.s(a|c)ss$/
 			},
-			// {
-			// 	test: /\.s(c|a)ss$/,
-			// 	use: [
-			// 		// Creates `style` nodes from JS strings
-			// 		'style-loader',
-			// 		// Translates CSS into CommonJS
-			// 		{
-			// 			loader: 'css-loader',
-			// 			options: {
-			// 				sourceMap: false,
-			// 				url: false,
-			// 				importLoaders: 2
-			// 			}
-			// 		},
-			// 		// Compiles Sass to CSS
-			// 		'sass-loader',
-			// 	],
-			// },
 			{
 				test: /\.(woff|woff2|ttf|svg|eot)$/,
 				use: [
@@ -109,6 +116,11 @@ module.exports = {
 							}
 					}
 				]
+			},
+			{
+				//IMAGE LOADER
+				test: /\.(jpe?g|png|gif|svg)$/i,
+				loader:'file-loader'
 			},
 			{
 				test: /\.(svg)(\?.*)?$/,

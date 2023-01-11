@@ -1,15 +1,15 @@
 import { PureComponent } from 'react';
 import React from 'react';
 import { connect } from 'react-redux';
-import Headers from '@/components/Headers';
-import Content from '../Content';
-import Footer from '@/components/Footer';
+import Header from '@/components/Header/Header';
+import ContentWrapper from '@/components/ContentWrapper/ContentWrapper';
 import styles from './App.module.scss';
+import './App.scss';
 
 function mapDispatchToProps(dispatch) {
 	return {
-
-	}
+		
+	};
 }
 
 function mapStateToProps(state) {
@@ -25,15 +25,14 @@ export default class App extends PureComponent<any, any> {
 	}
 
 	public async componentDidMount() {
-
+		
 	}
 
 	public render() {
 		return (
-			<div className={styles.pica}>
-				<Headers></Headers>
-				<Content></Content>
-				<Footer></Footer>
+			<div className={styles.App}>
+				<Header></Header>
+				<ContentWrapper></ContentWrapper>
 			</div>
 		);
 	}
